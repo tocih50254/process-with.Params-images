@@ -1,0 +1,18 @@
+baseURL: http://example.org/
+title: My New Hugo Site
+languageCode: en
+defaultContentLanguage: en
+
+
+# Language settings
+languages:
+  en:
+    title: My New Hugo Site
+    languageName: English
+    languageCode: en
+    weight: 1
+    contentDir: content/en/
+
+disableKinds:
+  - taxonomy
+  - term

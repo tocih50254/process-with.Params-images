@@ -1,0 +1,74 @@
+{{ define "main" }}
+<h1>{{.Title}}</h1>
+
+
+
+<!-- This code check how many images are available in .Params.Images and apply conditions -->
+{{ $imagePrefix := "image" }}
+{{ with .Params.Images }}
+{{ $totalImages := len . }}
+{{ if eq $totalImages 0 }}
+<!-- Code to handle when there are no images -->
+<h2>Total Number of Images: No images are available.</h2>
+{{ else if eq $totalImages 1 }}
+<!-- Code to handle when there is 1 image -->
+<h2>Total Number of Images: Only 1 image is available.</h2>
+<ul>
+    <li>{{ index . 0 0 | absURL }}</li>
+</ul>
+{{ else if eq $totalImages 2 }}
+<!-- Code to handle when there are 2 images -->
+<h2>Total Number of Images: 2 images available.</h2>
+<ul>
+    <li>{{$imagePrefix}}1: {{ index . 0 0 }}</li>
+    <li>{{$imagePrefix}}2: {{ index . 1 0 }}</li>
+</ul>
+{{ else if eq $totalImages 3 }}
+<!-- Code to handle when there are 3 images -->
+<h2>Total Number of Images: 3 images available.</h2>
+<ul>
+    <li>{{$imagePrefix}}1: {{ index . 0 0 }}</li>
+    <li>{{$imagePrefix}}2: {{ index . 1 0 }}</li>
+    <li>{{$imagePrefix}}3: {{ index . 2 0 }}</li>
+</ul>
+{{ else if eq $totalImages 4 }}
+<!-- Code to handle when there are 4 images -->
+<h2>Total Number of Images: 4 images available.</h2>
+<ul>
+    <li>{{$imagePrefix}}1: {{ index . 0 0 }}</li>
+    <li>{{$imagePrefix}}2: {{ index . 1 0 }}</li>
+    <li>{{$imagePrefix}}3: {{ index . 2 0 }}</li>
+    <li>{{$imagePrefix}}4: {{ index . 3 0 }}</li>
+</ul>
+{{ else }}
+<!-- Code to handle when there are more than 4 images -->
+<!-- This work -->
+<div class="">
+    {{ $imagesrc := resources.Get $.Params.coverImage }}
+    {{ $img_main_736 := $imagesrc.Resize "753x498" }}
+    <img src="{{ $img_main_736.RelPermalink | absURL }}" width="{{ $img_main_736.Width }}"
+        height="{{ $img_main_736.Height }}" alt="">
+</div>
+<!-- Similar to above how to process images taken from {{$imagePrefix}}1: {{ index . 0 0 }} -->
+<!-- Comment / Uncomment below to work on image resize -->
+{{/*  <div class="">
+    {{ $imagesrc := # get the 1st image and use it below to resize }}
+    {{ $img_main_736 := $imagesrc.Resize "753x498" }}
+    <img src="{{ $img_main_736.RelPermalink | absURL }}" width="{{ $img_main_736.Width }}"
+        height="{{ $img_main_736.Height }}" alt="">
+</div>  */}}
+
+<h2>Total Number of Images: More than 4 images available.</h2>
+<p>Displaying the first 4:</p>
+<ul>
+    <li>{{$imagePrefix}}1: {{ index . 0 0 }}</li>
+    <li>{{$imagePrefix}}2: {{ index . 1 0 }}</li>
+    <li>{{$imagePrefix}}3: {{ index . 2 0 }}</li>
+    <li>{{$imagePrefix}}4: {{ index . 3 0 }}</li>
+</ul>
+
+
+{{ end }}
+{{ end }}
+
+{{ end }}
