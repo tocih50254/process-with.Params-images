@@ -4,10 +4,7 @@
 
 Look the layouts/index.html
 
-## This is now (solved) with below code
-```
-{{ with $.Params.Images }}
-```
+## older issue
 
 When trying to get 
 ```
@@ -23,6 +20,10 @@ execute of template failed at <.Params.coverImage>: can’t evaluate field Param
 ```
 
 This Does work with (solved)
+```
+{{ with $.Params.Images }}
+```
+This is now (solved) with below code
 ```
 {{ with $.Params.Images }}
 ```
