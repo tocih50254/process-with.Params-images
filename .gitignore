@@ -1,0 +1,36 @@
+# Hugo
+/public/
+/resources/
+/themes/*/node_modules/
+/themes/*/resources/
+/themes/*/exampleSite/
+/themes/*/public/
+
+# Node.js
+/node_modules/
+
+# macOS
+.DS_Store
+**/.DS_Store
+
+# Visual Studio Code
+.vscode/
+
+# Editor/IDE specific files
+.idea/
+
+
+# Generated files by hugo
+public/
+resources/
+node_modules/
+/assets/jsconfig.json
+hugo_stats.json
+
+# Executable may be added to repository
+hugo.exe
+hugo.darwin
+hugo.linux
+
+# Temporary lock file while building
+/.hugo_build.lock
